@@ -15,3 +15,6 @@ I have implemented a classical prisoner's dilemma with the following strategies:
 I have come up with an upgrade to one of the winning basic strategies: Gradual. Gradual ooperates on the first move, then defect n times afer nth defections of its opponent, and calms down with 2 cooperations.
 
 I have found out that gradual is optimal at the first iterations when there are more strategies present that tend to defect. But when game progresses and there are more cooperative strategies it should punish more harshly. So to calculate hom many times to defect before calming down we use the following formula: floor(n*(1+n*(angryCoefficient))). Angry coefficient tells us how much to increase the number of defections. I found the optimal value to be 0.75.
+
+Behaviour of strategies:
+![alt text](https://github.com/zmazk123/iterated-prisoner-s-dilemma/blob/master/program.png "Program")
