@@ -327,7 +327,7 @@ class Mem2(Strategy):
         self.strategy = ''
         self.alldCounter = 0
 
-class Zmazegy(Strategy):
+class AngryGradual(Strategy):
     def __init__(self):
         super().__init__()
         self.counter = -2
@@ -412,7 +412,7 @@ for i in range(0,20):
     gradual = Gradual()
     prober = Prober()
     mem2 = Mem2()
-    zmazegy = Zmazegy()
+    angryGradual = AngryGradual()
 
     strategies.append(rand)
     strategies.append(alwaysCooperate)
@@ -432,7 +432,7 @@ for i in range(0,20):
     strategies.append(gradual)
     strategies.append(prober)
     strategies.append(mem2)
-    strategies.append(zmazegy)
+    strategies.append(angryGradual)
 
 strategiesSum = len(strategies)
 
@@ -460,7 +460,7 @@ for i in range(0, 50):
         "Gradual": [],
         "Prober": [],
         "Mem2": [],
-        "Zmazegy": [],
+        "AngryGradual": [],
     }
 
     for strategy in strategies:
