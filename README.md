@@ -6,20 +6,12 @@ The theory behind the game has captivated many scholars over the years. More rec
 
 The game is played iteratively for a number of rounds until it is ended (as if you are repeatedly interrogated for separate crimes). The scores from each round are accumulated, so the object is to optimize the point score before reaching game over. Game over is determined randomly anywhere between 1 and 100 rounds. At the end of the game, the scores are translated into percentages of the best possible scores. 
 
-More information: (https://www.investopedia.com/terms/i/iterated-prisoners-dilemma.asp)
+More information: https://www.investopedia.com/terms/i/iterated-prisoners-dilemma.asp
 
-## Instructions
+## Angry gradual
 
-![alt text](https://github.com/zmazk123/Stegonography/blob/master/program_image.png "Program")
+I have implemented a classical prisoner's dilemma with the following strategies: Randon, AlwaysCooperate, AlwaysDefect, TitForTat, Mistrust, Spiteful, PerCD, PerCCD, PerDDC, SoftMajo, HardMajo, Pavlov, Tf2t, HardTft, SlowTft, Gradual, Prober, Mem2. More about these strategies: https://hal.inria.fr/hal-01635333/document. These strategies than play a round robin tournament 20 times to determine their scores. Scores determine how many strategies will go to the next iteration(hence iterated prisoner's dilemma). The game is played until strategies reach an equilibrium. Some strategies will die out and some will stay at the fixed number of points.
 
-### Encoding
+I have come up with an upgrade to one of the winning basic strategies: Gradual. Gradual ooperates on the first move, then defect n times afer nth defections of its opponent, and calms down with 2 cooperations.
 
-1. Click on Open file an choose your bitmap image(i have already uploaded one).
-2. Write your super secret message in the textbox and make sure that the message is not longer than the maximum message lenght displayed in the program.
-4. Click on Encode.
-5. Save the image with the encoded message by clicking on Save.
-
-### Decoding
-
-1. Click on Open file an choose your bitmap image(i have already uploaded one).
-2. Click on Decode and the message will appear in the textbox.
+I have found out that gradual is optimal at the first iterations when there are more strategies present that tend to defect. But when game progresses and there are more cooperative strategies it should punish more harshly. So to calculate hom many times to defect before calming down we use the following formula: floor(n*(1+n*(angryCoefficient))). Angry coefficient how much to increase the number of defections. I found the optimal value to be 0.75.
